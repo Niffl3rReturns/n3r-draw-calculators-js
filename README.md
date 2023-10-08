@@ -1,33 +1,10 @@
-<p align="center">
-  <a href="https://github.com/pooltogether/pooltogether--brand-assets">
-    <img src="https://github.com/pooltogether/pooltogether--brand-assets/blob/977e03604c49c63314450b5d432fe57d34747c66/logo/pooltogether-logo--purple-gradient.png?raw=true" alt="PoolTogether Brand" style="max-width:100%;" width="200">
-  </a>
-</p>
-
-<br />
-
-# PoolTogether Draw Calculator JS
-
-[![Coveralls](https://github.com/pooltogether/draw-calculators-js/actions/workflows/main.yml/badge.svg)](https://github.com/pooltogether/draw-calculators-js/actions/workflows/main.yml)
-[![npm version](https://badge.fury.io/js/@pooltogether%2Fdraw-calculator-js.svg)](https://badge.fury.io/js/@pooltogether%2Fdraw-calculator-js)
-[![TypeScript definitions on DefinitelyTyped](https://definitelytyped.org/badges/standard.svg)](https://definitelytyped.org)
+# N3R Draw Calculator Utils
 
 This library includes a stateless Typescript model of the Solidity DrawCalculator. It is intended to be uses as a tool to easily check if a User has won a prize for a particular draw. This could also be calculated on-chain through the `DrawCalculator::calculate()` view function but this library is much faster.
 
-# Setup
-
-This project is available as an NPM package:
-
-```bash
-$ yarn add @pooltogether/draw-calculator-js
-```
-
-# How to use
+## How to use?
 
 To create a claim or calculate winnings for an address:
-
-1. Run `yarn add @pooltogether/draw-calculator-js` in your project to install the package.
-1. Import the desired functions and types: `import {drawCalculator, Draw, PrizeDistribution, DrawResults, filterResultsByValue, generatePicks, prepareClaims } from "@pooltogether/draw-calculator-js"`
 
 Starting with a particular `drawId` and `userAddress`, fetch the Draw information from the DrawBuffer contract:
 
@@ -53,7 +30,6 @@ const prizeDistribution = await PrizeDistributionBufferContract.functions.getPri
 
 Next, get the users balance using the convenient `getNormalizedBalancesForDrawIds(address _user, uint32[] calldata _drawIds)` view method
 on the DrawCalculator contract which returns an array of balances for drawIds:
-W
 
 ```js
 const drawCalculator: Contract = new ethers.Contract(address, drawCalculatorAbi, signerOrProvider);
@@ -99,27 +75,5 @@ await PrizeDistributorContract.functions.claim(
     claim.userAddress,
     claim.drawIds,
     claim.encodedWinningPickIndices,
-); //write rpc call
+);
 ```
-
-Congratulations you have now claimed a prize!
-
-# API Guide
-
-todo.
-
-# Types
-
-A full breakdown of the types can be found [here](./src/types.ts)
-
-# Testing
-
-Unit tests can be run using:
-
-```bash
-$ yarn test
-```
-
-# Development
-
-Fork/clone this repo. Create a pull request with the changes you would like to make. Unit tests must be passing.

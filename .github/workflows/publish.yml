@@ -33,8 +33,8 @@ jobs:
         run: yarn install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Compile contracts
-        run: yarn compile
+      - name: Build 
+        run: yarn build
       - name: Publish to GitHub Packages
         run: npm publish
         env:
