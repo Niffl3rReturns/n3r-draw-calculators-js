@@ -1,18 +1,16 @@
 {
-    "name": "@pooltogether/draw-calculator-js",
-    "version": "1.0.3-beta.4",
-    "description": "PoolTogether Draw Calculator",
+    "name": "@niffl3rreturns/n3r-draw-calculators-js",
+    "version": "1.0.0",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "license": "MIT",
     "scripts": {
         "sim": "ts-node ./src/sim/runSim.ts",
         "test": "tsdx test",
-        "start": "tsdx watch --onSuccess \"yalc push\"",
+        "start": "tsdx watch --onSuccess",
         "reinstall": "rm -rf node_modules && yarn install",
         "build": "tsdx build",
         "clean": "rm -rf dist/",
-        "prepare": "yarn build",
         "docs": "typedoc --out docs src/index.ts",
         "cli": "ts-node ./src/cli.ts"
     },
@@ -38,8 +36,7 @@
         "tsdx": "^0.14.1",
         "typedoc": "^0.22.4",
         "typedoc-plugin-markdown": "^3.11.0",
-        "typescript": "4.2.3",
-        "yalc": "^1.0.0-pre.53"
+        "typescript": "4.2.3"
     },
     "files": [
         "dist/**/*"
